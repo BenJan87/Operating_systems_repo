@@ -1,3 +1,4 @@
+#!/bin/bash
 base=$1;
 power=$2;
 echo "Solved using operator:";
