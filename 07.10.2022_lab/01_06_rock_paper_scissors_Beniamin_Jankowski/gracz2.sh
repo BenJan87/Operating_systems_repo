@@ -2,29 +2,27 @@ while true
 do
     if [ -f "komenda.txt" ]
     then
-        for line in $file:
+        file=$(cat komenda.txt 2>>/dev/null)
+        for line in $file
         do
-            if [[ line == "start" ]]
+            if [[ $line == "start" ]]
             then
-                if [ ! -f "los2.txt" ]
+                result_1=$(($RANDOM % 3))
+                if [[ $result_1 -eq 0 ]]
                 then
-                    result_2=$(($RANDOM % 3))
-                    if [[ $result_2 -eq 0 ]]
-                    then
-                        echo "rock" > los1.txt
-                    elif [[ $result_2 -eq 1 ]]
-                    then
-                        echo "paper" > los1.txt
-                    else
-                        echo "rock" > los1.txt
-                    fi
+                    echo "rock" > los2.txt
+                elif [[ $result_1 -eq 1 ]]
+                then
+                    echo "paper" > los2.txt
+                else
+                    echo "rock" > los2.txt
                 fi
-            fi
 
-            if [[ line == "stop" ]]
+            elif [[ $line == "stop" ]]
             then
                 exit 0
             fi
         done
+        
     fi
 done

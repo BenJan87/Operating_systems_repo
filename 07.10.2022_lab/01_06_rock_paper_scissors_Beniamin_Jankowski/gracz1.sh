@@ -2,10 +2,10 @@ while true
 do
     if [ -f "komenda.txt" ]
     then
-    
-        if [[ line == "start" ]]
-        then
-            if [ ! -f "los1.txt" ]
+        file=$(cat komenda.txt 2>>/dev/null)
+        for line in $file
+        do
+            if [[ $line == "start" ]]
             then
                 result_1=$(($RANDOM % 3))
                 if [[ $result_1 -eq 0 ]]
@@ -17,13 +17,12 @@ do
                 else
                     echo "rock" > los1.txt
                 fi
-            fi
-        fi
 
-        if [[ line == "stop" ]]
-        then
-            exit 0
-        fi
+            elif [[ $line == "stop" ]]
+            then
+                exit 0
+            fi
+        done
         
     fi
 done
