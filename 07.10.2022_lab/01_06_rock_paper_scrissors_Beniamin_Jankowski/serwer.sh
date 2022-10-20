@@ -5,6 +5,3 @@ echo "start" > komenda.txt
 
 
 
-
-
-
