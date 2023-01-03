@@ -1,1 +1,0 @@
-/home/benek/Desktop/5_1_8.sh
